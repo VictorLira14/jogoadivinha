@@ -1,58 +1,55 @@
-import random 
+import random
 
+print('===========================================')
+print('Bem Vindo(a) ao Jogo De Adivinhações Master')
+print('===========================================')
 
-print("********************************")
-print("bem vindo ao jogo de adivinhação")
-print("********************************")
+numero = round(random.randrange(1,19))
+total_de_tentativas = 3
+pontos = 1000
 
+print('Qual o nível desejado?\n')
+print('(1) Fácil (2) Médio (3) Difícil')
 
-numero_aleatorio = round(random.random(1,51))
-total_de_tentantivas = 3
-pontos = 4500
+nível = int(input('Digite o nível desejado: '))
 
-print("qual o nivel desejado?\n")
-prnt("(1)facil (2)médio (3)dificil")
+if(nível == 1):
+    total_de_tentativas = 20
+elif(nível == 2):
+    total_de_tentativas = 10
 
-nivel = int(input("digite o nivel desejado"))
-
-if(nivel == 1):
-    total_de_tentantivas = 25
-elif(nivel == 2):
-    total_de_tentantivas = 15
 else:
-    (nivel == 3)
-    total_de_tentantivas = 5
+    total_de_tentativas = 5
 
 
-print(numero_aleatorio)
 
-for rodada in range(1,total_de_tentantivas +1):
-    print(f"tentativas {rodada} de {total_de_tentantivas} ")
-    chute = int(input("Digite um número de 1 e 50:"))
+for rodada in range (1,total_de_tentativas + 1):
+    print(f'Tentativa {rodada} de {total_de_tentativas}')
+    chute = int(input('Digite um numero entre 1 e 30: '))
 
-    if(chute < 1 or chute > 50):
-        print("Você deve digitar um número entre 1 e 50:!") 
+    if(chute < 1 or chute > 30):
+        print('você deve digitar um número entre 1 e 30')
         continue
 
-numero_secreto = 14 
-acertou = numero_secreto == chute
-chute_maior = chute > numero_secreto
-chute_menor = chute < numero_secreto
+    acertou = numero == chute
+    chute_maior = chute > numero
+    chute_menor = chute < numero
 
-print(f"você digitou {chute}")
-
-if(acertou):
-    print("Você acertou sua pontuação foi {pontos} pontos!")
-else:
-    if(chute_maior):
-        print("Você errou! Seu número foi maior do que o número secreto")
-    elif(chute_menor):
-       print("Você errou! Seu número foi menor que o número secreto")
-       pontos_perdidos = abs(numero_secreto - chute)
-       pontos = pontos - pontos_perdidos
+    print(f'Você Digitou {chute}')
         
-    print("Você errou")
+    if(acertou):
+        print(f'Você acertou! Sua pontuação foi {pontos} pontos')
+        break
+        
+    else: 
+        if(chute_maior):
+            (print('Seu Número foi maior que o Número Escolhido'))
 
-    print("***********")
-    print("Fim de jogo")
-    print("***********")
+        elif(chute_menor):
+            (print('Seu número foi menor que o Número Escolhido'))
+            pontos_perdidos = abs(numero - chute)
+            pontos = pontos - pontos_perdidos
+
+print('0---------0')
+print('fim de jogo')
+print('0---------0')
